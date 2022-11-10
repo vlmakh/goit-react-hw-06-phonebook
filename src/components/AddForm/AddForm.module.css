@@ -25,6 +25,8 @@
   background-color: transparent;
   border-radius: 50%;
   cursor: pointer;
+
+  transition: color 250ms linear, background-color 250ms linear;
 }
 
 .addButton:hover {
