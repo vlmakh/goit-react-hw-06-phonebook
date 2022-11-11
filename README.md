@@ -1,6 +1,8 @@
 # goit-react-hw-06-phonebook
 
 - Refactor using hooks
+- Refactor using Redux Toolkit - configureStore, createSlice
+- LocalStorage is used to save current data
 
 Used libraries:
 
@@ -11,5 +13,3 @@ Used libraries:
 - react-icons;
 - nanoid;
 - prop-types.
-
-LocalStorage is used to save current data
