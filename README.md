@@ -1,8 +1,7 @@
 # goit-react-hw-06-phonebook
 
-- Refactor using hooks
 - Refactor using Redux Toolkit - configureStore, createSlice
-- LocalStorage is used to save current data
+- Saving to LocalStorage done using Redux Persist
 
 Used libraries:
 
