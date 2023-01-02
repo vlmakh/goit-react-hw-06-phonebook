@@ -1,25 +1,28 @@
-import PropTypes from 'prop-types';
 import css from './AddForm.module.css';
 import { HiPhone, HiUserAdd } from 'react-icons/hi';
 import { MdOutlineDataSaverOn } from 'react-icons/md';
 import { Box } from 'components/Box/Box';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { addContact } from 'redux/store';
 
 let schema = yup.object().shape({
   name: yup.string().required(),
   number: yup.number().required(),
 });
 
-export function AddForm({ onSubmit }) {
-  const addContact = (values, { resetForm }) => {
-    onSubmit(values);
+export function AddForm() {
+  const dispatch = useDispatch();
+
+  const handleSubmit = (values, { resetForm }) => {
+    dispatch(addContact(values));
     resetForm();
   };
 
   return (
     <Formik
-      onSubmit={addContact}
+      onSubmit={handleSubmit}
       initialValues={{
         name: '',
         number: '',
@@ -72,7 +75,3 @@ export function AddForm({ onSubmit }) {
     </Formik>
   );
 }
-
-AddForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
