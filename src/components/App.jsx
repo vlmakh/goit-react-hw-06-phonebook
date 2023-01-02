@@ -3,7 +3,7 @@ import { AddForm } from './AddForm/AddForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact, deleteContact, filterChange } from 'redux/store';
+import { addContact, filterChange } from 'redux/store';
 import { Notification } from 'components/Notification/Notification';
 
 function App() {
@@ -13,10 +13,6 @@ function App() {
 
   const handleAdd = contact => {
     dispatch(addContact(contact));
-  };
-
-  const handleDelete = contactId => {
-    dispatch(deleteContact(contactId));
   };
 
   const handleFilter = event => {
@@ -42,7 +38,7 @@ function App() {
           <Notification msg="No contacts added" />
         )}
 
-        <ContactList contacts={filteredContacts} deleteContact={handleDelete} />
+        <ContactList contacts={filteredContacts}  />
       </Box>
     </Box>
   );
