@@ -4,6 +4,7 @@ import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact, deleteContact, filterChange } from 'redux/store';
+import { Notification } from 'components/Notification/Notification';
 
 function App() {
   const dispatch = useDispatch();
@@ -35,7 +36,11 @@ function App() {
       <Box p={3} mt={2} border="1px solid #212121" borderRadius={3}>
         <h2>Contacts</h2>
 
-        <Filter value={filter} onChange={handleFilter} />
+        {filteredContacts.length > 0 || filter ? (
+          <Filter value={filter} onChange={handleFilter} />
+        ) : (
+          <Notification msg="No contacts added" />
+        )}
 
         <ContactList contacts={filteredContacts} deleteContact={handleDelete} />
       </Box>
