@@ -10,8 +10,8 @@ function App() {
   const filter = useSelector(state => state.contacts.filter);
 
   const normalizedFilter = filter.toLowerCase();
-  const filteredContacts = contacts.filter(el =>
-    el.name.toLowerCase().includes(normalizedFilter)
+  const filteredContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(normalizedFilter)
   );
 
   return (
@@ -23,12 +23,12 @@ function App() {
         <h2>Contacts</h2>
 
         {filteredContacts.length > 0 || filter ? (
-          <Filter  />
+          <Filter />
         ) : (
           <Notification msg="No contacts added" />
         )}
 
-        <ContactList contacts={filteredContacts}  />
+        <ContactList contacts={filteredContacts} />
       </Box>
     </Box>
   );
