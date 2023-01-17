@@ -1,0 +1,13 @@
+.layout {
+  width: 360px;
+  margin: 0 auto;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.contacts {
+  margin-top: 4px;
+  padding: 8px;
+  border: 1px solid #212121;
+  border-radius: 8px;
+}

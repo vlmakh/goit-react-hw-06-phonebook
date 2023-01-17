@@ -1,4 +1,4 @@
-import { Box } from './Box/Box';
+import css from './App.module.css';
 import { AddForm } from './AddForm/AddForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
@@ -15,11 +15,11 @@ function App() {
   );
 
   return (
-    <Box width="360px" mx="auto" py={2}>
+    <div className={css.layout}>
       <h1>Phonebook</h1>
       <AddForm />
 
-      <Box p={3} mt={2} border="1px solid #212121" borderRadius={3}>
+      <div className={css.contacts}>
         <h2>Contacts</h2>
 
         {filteredContacts.length > 0 || filter ? (
@@ -29,8 +29,8 @@ function App() {
         )}
 
         <ContactList contacts={filteredContacts} />
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 }
 
