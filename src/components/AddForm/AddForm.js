@@ -32,7 +32,7 @@ export function AddForm() {
       <Form className={css.addForm}>
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Box>
-            <Box display="flex" alignItems="center" position="relative">
+            <div className={css.addField}>
               <HiUserAdd />
               <Field
                 className={css.addInput}
@@ -45,9 +45,9 @@ export function AddForm() {
                 className={css.mistake}
                 name="name"
               />
-            </Box>
+            </div>
 
-            <Box display="flex" alignItems="center" mt={3} position="relative">
+            <div className={css.addField}>
               <HiPhone />
               <Field
                 className={css.addInput}
@@ -60,7 +60,7 @@ export function AddForm() {
                 className={css.mistake}
                 name="number"
               />
-            </Box>
+            </div>
           </Box>
 
           <button

@@ -7,6 +7,16 @@
   border-radius: 8px;
 }
 
+.addField {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.addField:last-of-type {
+  margin-top: 16px;
+}
+
 .addInput {
   display: flex;
   align-items: center;
