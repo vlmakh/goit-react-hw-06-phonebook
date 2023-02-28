@@ -1,6 +1,5 @@
-import { IState } from 'components/types';
+import { RootState } from './store';
 
-export const selectFilter = (state: IState) => state.contacts.filter;
+export const selectFilter = (state: RootState) => state.contacts.filter;
 
-export const selectContacts = (state: IState) => state.contacts.contacts;
-
+export const selectContacts = (state: RootState) => state.contacts.contacts;
