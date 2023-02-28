@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types';
 import css from './ContactListItem.module.css';
 import { MdDeleteForever } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/store';
+import { IContact } from 'components/types';
 
-export function ContactListItem({ id, name, number }) {
+export function ContactListItem({ id, name, number }: IContact) {
   const dispatch = useDispatch();
 
-  const handleDelete = contactId => {
+  const handleDelete = (contactId: string) => {
     dispatch(deleteContact(contactId));
   };
 
@@ -26,9 +26,3 @@ export function ContactListItem({ id, name, number }) {
     </li>
   );
 }
-
-ContactListItem.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-};

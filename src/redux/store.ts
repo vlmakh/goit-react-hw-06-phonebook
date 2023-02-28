@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
 import {
   persistStore,
@@ -11,6 +11,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { IValues } from 'components/types';
 
 const persistConfig = {
   key: 'phonebook',
@@ -32,7 +33,7 @@ const myContacts = createSlice({
     filter: '',
   },
   reducers: {
-    addContact(state, action) {
+    addContact(state, action: PayloadAction<IValues>) {
       if (
         state.contacts.some(
           ({ name }) => name.toLowerCase() === action.payload.name.toLowerCase()
@@ -48,14 +49,14 @@ const myContacts = createSlice({
         state.contacts.push(newContact);
       }
     },
-    deleteContact(state, action) {
+    deleteContact(state, action: PayloadAction<string>) {
       if (global.confirm('Delete contact?')) {
         state.contacts = state.contacts.filter(
           ({ id }) => id !== action.payload
         );
       }
     },
-    filterChange: (state, action) => {
+    filterChange: (state, action: PayloadAction<string>) => {
       state.filter = action.payload;
     },
   },
@@ -76,3 +77,4 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+export type RootState = ReturnType<typeof store.getState>;
