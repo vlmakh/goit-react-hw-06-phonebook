@@ -6,6 +6,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/store';
+import { IValues, IResetForm } from 'components/types';
 
 let schema = yup.object().shape({
   name: yup.string().required(),
@@ -15,7 +16,7 @@ let schema = yup.object().shape({
 export function AddForm() {
   const dispatch = useDispatch();
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (values: IValues, { resetForm }: IResetForm) => {
     dispatch(addContact(values));
     resetForm();
   };
